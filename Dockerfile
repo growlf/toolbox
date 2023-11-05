@@ -19,7 +19,7 @@ RUN apt-get -yq install --no-install-recommends \
         netcat-traditional \
         wget nmap \
         zsh git \
-        sudo \
+        sudo openssh-client \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
