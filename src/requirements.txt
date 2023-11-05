@@ -1,0 +1,3 @@
+docker_py==1.10.6
+invoke==2.2.0
+pipreqs
