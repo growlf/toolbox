@@ -6,8 +6,7 @@ services:
       context: .
     image: netyeti/toolbox:latest
     environment:
-      - TESTVAR=test1
-    #command: ["/app/testfile"]
+      - TESTVAR=${TESTVAR:-test1}
     volumes:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
