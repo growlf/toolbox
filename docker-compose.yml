@@ -10,5 +10,5 @@ services:
     volumes:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./src:/app
+
     
