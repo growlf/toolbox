@@ -6,6 +6,8 @@ By: Garth Johnson
 
 Purpose: tools that I use on a regular basis, but want on other systems without installing them bare-metal.
 
+source: https://github.com/growlf/toolbox/
+image: https://hub.docker.com/repository/docker/netyeti/toolbox/
 
 ## Notes
 

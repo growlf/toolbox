@@ -4,6 +4,7 @@ services:
   app:
     build:
       context: .
+    image: netyeti/toolbox:latest
     environment:
       - TESTVAR=test1
     #command: ["/app/testfile"]
