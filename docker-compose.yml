@@ -7,6 +7,9 @@ services:
     image: netyeti/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-test1}
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
     volumes:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
