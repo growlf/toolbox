@@ -4,6 +4,7 @@ services:
   app:
     build:
       context: .
+      dockerfile: Dockerfile
     image: netyeti/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-test1}
