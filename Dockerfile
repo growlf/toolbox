@@ -20,6 +20,7 @@ RUN apt-get -yq install --no-install-recommends \
         wget nmap \
         zsh git \
         sudo openssh-client \
+        tcpdump procps iproute2 \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
@@ -32,7 +33,7 @@ RUN mkdir /host
 WORKDIR /app
 
 # Copy in any/all additional files from our project
-ADD src .
+ADD src/requirements.txt .
 
 # Istall Python basic libraries
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
@@ -48,6 +49,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
+ADD src/zsh-in-docker.sh .
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
@@ -65,6 +67,10 @@ RUN ./zsh-in-docker.sh \
     -p dirhistory \
     -a 'bindkey "\$terminfo[kcuu1]" history-substring-search-up' \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down'
+
+COPY src/tasks.py .
+
+ADD https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
 # Set default command
 CMD ["/bin/zsh"]
