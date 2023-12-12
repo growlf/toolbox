@@ -4,9 +4,12 @@ import os
 import logging
 import docker
 import pyfiglet 
-import urllib
-import portscan
+import speedtest
 
+
+
+###########################################
+# Library functions
 
 # Create a logger object 
 logger = logging.getLogger(__name__)
@@ -24,7 +27,11 @@ def _set_log_level(verbose=0) -> None:
 
     # Actually set the logging level
     logging.basicConfig(level=log_levels[verbose])
- 
+    
+    
+
+###########################################
+# Tasks
 
 @task(
     default=True, 
@@ -47,8 +54,8 @@ def help(c, verbose=0):
 
 @task(
     help={'name': "Name of the person to say hi to.",
-          'verbose': "Logging and verbosity level"
-          }, 
+        'verbose': "Logging and verbosity level"
+        }, 
     optional=['name'],
     incrementable=['verbose']
     )
@@ -68,26 +75,33 @@ def hello(c, name="world", verbose=0):
 
 
 @task(
-    help={'host': "Host to test against"},
     incrementable=['verbose']
     )
-def ping(c, host, verbose=0):
-    """Ping a remote systems
-
-    Args:
-        c (_type_): _description_
-        host (_type_): address to ping
-        verbose (int, optional): logging and response level. Defaults to 0.
+def netspeed(c, verbose=0):
+    """Run an internet speedtest
     """
 
     _set_log_level(verbose)
 
-    try:
-        output = subprocess.check_output(['ping', '-c', '1', host])
-        logger.debug("PING checked Google")
-    except subprocess.CalledProcessError:
-        logger.info("Ping command failed")
+    servers = []
+    # If you want to test against a specific server
+    # servers = [1234]
 
+    threads = None
+    # If you want to use a single threaded test
+    # threads = 1
 
+    s = speedtest.Speedtest()
+    s.get_servers(servers)
+    s.get_best_server()
+    s.download(threads=threads)
+    s.upload(threads=threads)
 
-
+    results_dict = s.results.dict()
+    
+    logger.debug(results_dict)
+    logger.debug(s.results.server)
+    logger.info(f"PING: {int(s.results.ping)}ms")
+    logger.info(f"UPLOAD: {int(s.results.upload / 1024 / 1024)}Mbps")
+    logger.info(f"DOWNLOAD: {int(s.results.download / 1024 / 1024)}Mbps")
+    
