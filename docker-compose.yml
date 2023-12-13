@@ -1,13 +1,14 @@
 version: '3.8'
 services:
 
+  # Example container with DooD and host file/net access
   app:
     build:
       context: .
       dockerfile: Dockerfile
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=${TESTVAR:-test1}
+      - TESTVAR=${TESTVAR:-app}
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
@@ -20,7 +21,7 @@ services:
   app2:
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=app2
+      - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
