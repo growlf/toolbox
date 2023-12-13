@@ -23,7 +23,7 @@
 			"version": "latest"
 		},
 		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
