@@ -42,3 +42,6 @@ Some tasks to add to the default options:
 - https://github.com/romkatv/powerlevel10k
 - https://medium.com/nerd-for-tech/my-python-boilerplate-and-a-little-python-fu-e0ed59d97627
 - https://pypi.org/project/portscan/
+
+
+[![Docker](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
