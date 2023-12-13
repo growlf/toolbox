@@ -20,7 +20,7 @@
 		},
 		"ghcr.io/devcontainers/features/python:1": {
 			"installTools": true,
-			"version": "latest"
+			"version": "3.11"
 		},
 		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
 	},
