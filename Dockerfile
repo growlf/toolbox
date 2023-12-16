@@ -50,6 +50,7 @@ USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
 ADD src/zsh-in-docker.sh .
+COPY src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
@@ -66,7 +67,8 @@ RUN ./zsh-in-docker.sh \
     -p tig \
     -p dirhistory \
     -a 'bindkey "\$terminfo[kcuu1]" history-substring-search-up' \
-    -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down'
+    -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down' \
+    -a '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh'
 
 COPY src/tasks.py .
 
