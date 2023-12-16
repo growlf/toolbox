@@ -1,6 +1,4 @@
 from invoke import task
-import subprocess
-import os
 import logging
 import docker
 import pyfiglet 

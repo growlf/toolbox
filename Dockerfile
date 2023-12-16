@@ -5,7 +5,7 @@ RUN apt-get -yq update && apt-get -yq install \
         curl \
         gnupg \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
-    && echo "deb https://download.docker.com/linux/ubuntu focal stable" | tee /etc/apt/sources.list.d/docker.list \
+    && echo "deb https://download.docker.com/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list \
     && apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
         docker-ce-cli docker-compose
@@ -24,7 +24,8 @@ RUN apt-get -yq install --no-install-recommends \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # ensure that there is a place to mount the host files
 RUN mkdir /host
@@ -46,6 +47,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
+#RUN usermod -aG docker $USERNAME
+
+# Switch to the user now so that file ownership matches
 USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
