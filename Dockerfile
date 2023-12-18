@@ -1,4 +1,4 @@
-FROM python:3.11-slim-bullseye
+FROM python:3.12-slim-bullseye
 
 # Install updates and docker
 RUN apt-get -yq update && apt-get -yq install \
