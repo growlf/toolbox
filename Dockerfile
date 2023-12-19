@@ -14,7 +14,7 @@ RUN apt-get -yq update && apt-get -yq install \
 RUN apt-get -yq install --no-install-recommends \
         sudo openssh-client mosquitto-clients \
         nano vim less \
-        zsh git rsync \
+        zsh git rsync bzip2 \
         tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping wget nmap netcat-traditional \
         procps \
         htop \
@@ -50,7 +50,7 @@ USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
 ADD src/zsh-in-docker.sh .
-COPY src/.p10k.zsh /home/$USERNAME/.p10k.zsh
+ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
@@ -70,7 +70,7 @@ RUN ./zsh-in-docker.sh \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down' \
     -a '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh'
 
-COPY src/tasks.py .
+ADD src/tasks.py .
 
 ADD https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
