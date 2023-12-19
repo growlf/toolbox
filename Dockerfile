@@ -12,20 +12,16 @@ RUN apt-get -yq update && apt-get -yq install \
 
 # Install apps/tools
 RUN apt-get -yq install --no-install-recommends \
-        mosquitto-clients \
+        sudo openssh-client mosquitto-clients \
         nano vim less \
-        tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping \
-        dialog htop \
-        netcat-traditional \
-        wget nmap \
-        zsh git \
-        sudo openssh-client \
-        tcpdump procps iproute2 \
+        zsh git rsync \
+        tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping wget nmap netcat-traditional \
+        procps \
+        htop \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+    && rm -rf /var/lib/apt/lists/* 
 
 # ensure that there is a place to mount the host files
 RUN mkdir /host
