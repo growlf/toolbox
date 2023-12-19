@@ -8,7 +8,7 @@ RUN apt-get -yq update && apt-get -yq install \
     && echo "deb https://download.docker.com/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list \
     && apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
-        docker-ce-cli docker-compose docker-compose-plugin
+        docker-ce-cli docker-compose-plugin
 
 # Install apps/tools
 RUN apt-get -yq install --no-install-recommends \
