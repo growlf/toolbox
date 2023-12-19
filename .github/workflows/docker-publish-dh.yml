@@ -1,5 +1,6 @@
 name: Docker Hub
 
+
 on:
   release:
     types: [published]
@@ -10,7 +11,10 @@ on:
     tags: [ 'v*.*.*' ]
   pull_request:
     branches:
-    - main    
+    - main 
+  workflow_dispatch:
+    
+    
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
