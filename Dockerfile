@@ -49,8 +49,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
 USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
-ADD src/zsh-in-docker.sh .
-ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
+ADD --chown=1000:1000  --chmod=+x src/zsh-in-docker.sh .
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
@@ -66,13 +65,18 @@ RUN ./zsh-in-docker.sh \
     -p sudo \
     -p tig \
     -p dirhistory \
+    -p history \
     -a 'bindkey "\$terminfo[kcuu1]" history-substring-search-up' \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down' \
     -a '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh'
+#    -p fzf-zsh-plugin \
+ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 
-ADD src/tasks.py .
+ADD --chown=1000:1000 src/.zshrc /home/$USERNAME/.zshrc
+ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 
-ADD https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
+ADD --chown=1000:1000 --chmod=+x src/tasks.py .
+ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
 # Set default command
 CMD ["/bin/zsh"]
