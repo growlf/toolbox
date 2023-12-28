@@ -1,4 +1,4 @@
-docker_py==1.10.6
+docker==7.0.0
 invoke==2.2.0
 pyfiglet==1.0.2
 pipreqs==0.4.13
