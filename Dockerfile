@@ -12,20 +12,16 @@ RUN apt-get -yq update && apt-get -yq install \
 
 # Install apps/tools
 RUN apt-get -yq install --no-install-recommends \
-        mosquitto-clients \
+        sudo openssh-client mosquitto-clients \
         nano vim less \
-        tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping \
-        dialog htop \
-        netcat-traditional \
-        wget nmap \
-        zsh git \
-        sudo openssh-client \
-        tcpdump procps iproute2 \
+        zsh git rsync bzip2 \
+        tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping wget nmap netcat-traditional \
+        procps \
+        htop \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+    && rm -rf /var/lib/apt/lists/* 
 
 # ensure that there is a place to mount the host files
 RUN mkdir /host
@@ -43,18 +39,17 @@ RUN python3 -m pip install --no-cache-dir -r requirements.txt
 ARG USERNAME=netyeti
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-RUN groupadd --gid $USER_GID $USERNAME \
+RUN groupadd --gid $USER_GID $USERNAME && groupadd --gid 999 docker \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
-#RUN usermod -aG docker $USERNAME
+RUN usermod -aG docker $USERNAME
 
 # Switch to the user now so that file ownership matches
 USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
-ADD src/zsh-in-docker.sh .
-COPY src/.p10k.zsh /home/$USERNAME/.p10k.zsh
+ADD --chown=1000:1000  --chmod=+x src/zsh-in-docker.sh .
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
@@ -70,13 +65,18 @@ RUN ./zsh-in-docker.sh \
     -p sudo \
     -p tig \
     -p dirhistory \
+    -p history \
     -a 'bindkey "\$terminfo[kcuu1]" history-substring-search-up' \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down' \
     -a '[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh'
+#    -p fzf-zsh-plugin \
+ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 
-COPY src/tasks.py .
+ADD --chown=1000:1000 src/.zshrc /home/$USERNAME/.zshrc
+ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 
-ADD https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
+ADD --chown=1000:1000 --chmod=+x src/tasks.py .
+ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
 # Set default command
 CMD ["/bin/zsh"]

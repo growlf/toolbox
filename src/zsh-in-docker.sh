@@ -181,3 +181,5 @@ if [ "$THEME" = "default" ]; then
     git clone --depth 1 https://github.com/romkatv/powerlevel10k "$HOME"/.oh-my-zsh/custom/themes/powerlevel10k
     powerline10k_config >> "$HOME"/.zshrc
 fi
+
+#git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
