@@ -1,5 +1,8 @@
 # Toolbox
 
+[![ghcr.io](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
+[![Docker Hub](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml)
+
 Containerized tools for on the go troubleshooting
 
 By: Garth Johnson & others
@@ -42,7 +45,5 @@ Some tasks to add to the default options:
 - https://github.com/romkatv/powerlevel10k
 - https://medium.com/nerd-for-tech/my-python-boilerplate-and-a-little-python-fu-e0ed59d97627
 - https://pypi.org/project/portscan/
-
-
-[![ghcr.io](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
-[![Docker Hub](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml)
+- https://docs.pyinvoke.org/en/stable/
+- https://docker-py.readthedocs.io/en/stable/
