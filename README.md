@@ -3,22 +3,24 @@
 [![ghcr.io](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
 [![Docker Hub](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml)
 
-Containerized tools for on the go troubleshooting
+Containerized tools for on-the-go troubleshooting and developing in alien environments.
 
 By: Garth Johnson & others
 
-The purpose of this container image is to provide tools that I use on a regular basis and would like to use on other systems without installing them to the bare-metal (leave minimal footprint and cleanup).
+The purpose of this container image is to provide tools that can help diagnose issues and ease/simplify development struggles on alien envirnments.
 
-Additionally, this container can also be easily used for 
+Additionally, this container image can easily used for:
 
 - devlopment new container prototypes
 - debugging container builds and deployments
-- educational intents for container development/examples
+- educational intents for container development/examples (i.e. workflows and devcontainers)
 
 You can find more at:
 
 - source: https://github.com/growlf/toolbox/
-- image: https://hub.docker.com/repository/docker/netyeti/toolbox/
+- release images:
+  - https://hub.docker.com/repository/docker/netyeti/toolbox/
+  - ghcr.io/growlf/toolbox:latest
 
 ## Examples
 
