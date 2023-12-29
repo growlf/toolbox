@@ -39,11 +39,11 @@ RUN python3 -m pip install --no-cache-dir -r requirements.txt
 ARG USERNAME=netyeti
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-RUN groupadd --gid $USER_GID $USERNAME \
+RUN groupadd --gid $USER_GID $USERNAME && groupadd --gid 999 docker \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
-#RUN usermod -aG docker $USERNAME
+RUN usermod -aG docker $USERNAME
 
 # Switch to the user now so that file ownership matches
 USER $USERNAME
