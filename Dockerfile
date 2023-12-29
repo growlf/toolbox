@@ -88,7 +88,5 @@ ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 ADD --chown=1000:1000 --chmod=+x src/tasks.py .
 ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
-ARG TOOLBOX_VERSION="$(git describe --tags `git rev-list --tags --max-count=1`)"
-RUN echo "${TOOLBOX_VERSION}" > /app/TOOLBOX_VERSION
 # Set default command
 CMD ["/bin/zsh"]
