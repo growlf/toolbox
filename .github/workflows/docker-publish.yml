@@ -1,21 +1,21 @@
 name: GitHub CI
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
 
 on:
   schedule:
     - cron: '0 1 * * 1'
+  release:
+    types: [published]
   push:
-    branches: [ "main", "release/*" ]
+    branches:
+      - main
+      - release/*
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
-
+  workflow_dispatch:    
+    
     
 env:
   # Use docker.io for Docker Hub if empty
