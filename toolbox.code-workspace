@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"window.autoDetectColorScheme": true
+		"window.autoDetectColorScheme": true,
+		"editor.fontFamily": "'MesloLGS NF', 'Droid Sans Mono', 'monospace', monospace"
 	}
 }
