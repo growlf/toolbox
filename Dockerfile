@@ -1,5 +1,10 @@
 FROM python:3.12-slim-bullseye
 
+# Passed from Github Actions
+ARG GIT_VERSION_TAG=unspecified
+ARG GIT_COMMIT_MESSAGE=unspecified
+ARG GIT_VERSION_HASH=unspecified
+
 # Install updates and docker
 RUN apt-get -yq update && apt-get -yq install \
         curl \
@@ -36,7 +41,7 @@ ADD src/requirements.txt .
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Setup a user to match the host and reduce the frustration/confusion of file ownership
-ARG USERNAME=netyeti
+ARG USERNAME=ubuntu
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 RUN groupadd --gid $USER_GID $USERNAME && groupadd --gid 999 docker \
@@ -44,6 +49,11 @@ RUN groupadd --gid $USER_GID $USERNAME && groupadd --gid 999 docker \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN usermod -aG docker $USERNAME
+
+# You can read these files for the information in your application
+RUN echo $GIT_VERSION_TAG > GIT_VERSION_TAG.txt
+RUN echo $GIT_COMMIT_MESSAGE > GIT_COMMIT_MESSAGE.txt
+RUN echo $GIT_VERSION_HASH > GIT_VERSION_HASH.txt
 
 # Switch to the user now so that file ownership matches
 USER $USERNAME
@@ -78,5 +88,7 @@ ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 ADD --chown=1000:1000 --chmod=+x src/tasks.py .
 ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
+ARG TOOLBOX_VERSION="$(git describe --tags `git rev-list --tags --max-count=1`)"
+RUN echo "${TOOLBOX_VERSION}" > /app/TOOLBOX_VERSION
 # Set default command
 CMD ["/bin/zsh"]
