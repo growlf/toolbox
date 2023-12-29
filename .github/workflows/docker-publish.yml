@@ -81,6 +81,10 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            GIT_VERSION_TAG=${{ env.RELEASE_VERSION }}
+            GIT_COMMIT_MESSAGE=${{ github.event.head_commit.message }}
+            GIT_VERSION_HASH=${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
