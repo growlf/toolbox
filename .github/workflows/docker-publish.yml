@@ -25,6 +25,10 @@ env:
 
 
 jobs:
+  
+  run-tests:
+    uses: growlf/toolbox/.github/workflows/python-app.yml@main
+
   build:
 
     runs-on: ubuntu-latest
@@ -37,8 +41,6 @@ jobs:
       
 
     steps:
-      - name: Run tests
-        uses: growlf/toolbox/.github/workflows/python-app.yml@main
 
       - name: Checkout repository
         uses: actions/checkout@v3
