@@ -4,10 +4,20 @@
 name: Python application
 
 on:
+  schedule:
+    - cron: '0 1 * * 1'
+  release:
+    types: [published]
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+      - release/*
+    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:    
+    
+
 
 permissions:
   contents: read
@@ -36,4 +46,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest -v --color=yes --cov=src --cov-report=xml tests/
