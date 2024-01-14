@@ -1,6 +1,6 @@
 # Toolbox
-
-![GitHub Tag](https://img.shields.io/github/v/tag/growlf/toolbox?logo=docker&logoColor=white&label=Release)
+![GitHub Release](https://img.shields.io/github/v/release/growlf/toolbox?logo=docker&logoColor=white)
+![GitHub Tag](https://img.shields.io/github/v/tag/growlf/toolbox?logo=docker&logoColor=white&label=Latest)
 [![PyTest](https://github.com/growlf/toolbox/actions/workflows/python-app.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/python-app.yml)
 [![ghcr.io](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
 [![Docker Hub](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml)
