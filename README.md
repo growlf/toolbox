@@ -1,5 +1,9 @@
 # Toolbox
 
+[![GitHub Release](https://img.shields.io/github/v/release/growlf/toolbox?logo=docker&logoColor=white)](https://github.com/growlf/toolbox/pkgs/container/toolbox)
+[![GitHub Tag](https://img.shields.io/github/v/tag/growlf/toolbox?logo=docker&logoColor=white&label=Latest)](https://github.com/growlf/toolbox/pkgs/container/toolbox)
+![Docker Image Size with architecture (latest by date/latest semver)](https://img.shields.io/docker/image-size/netyeti/toolbox)
+
 [![PyTest](https://github.com/growlf/toolbox/actions/workflows/python-app.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/python-app.yml)
 [![ghcr.io](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
 [![Docker Hub](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml)
@@ -21,11 +25,17 @@ You can find more at:
 - source: https://github.com/growlf/toolbox/
 - release images:
   - https://hub.docker.com/repository/docker/netyeti/toolbox/
-  - ghcr.io/growlf/toolbox:latest
+  - https://ghcr.io/growlf/toolbox:latest
 
-## Examples
+## Batteries included
 
-### Monitor packets in local network
+### Custom Shell
+
+Using the `docker-compose.yml` file (included) makes certain tasks easier.  For example, opening a self-removing ZShell instance can be done lke so:
+
+    docker compose run --rm app1
+
+### Monitor packets in the local network
 
 Using `tcpdump` can either be done from within a shell of the toolbox container, or direct commandline like so:
 
@@ -39,13 +49,28 @@ You can also run arbitrary commands and scripts directly from the commandline li
 
 ## Invoke
 
-Some tasks to add to the default options:
+This image implements [Python Invoke](https://www.pyinvoke.org/), for managing shell-oriented subprocesses and organizing executable Python code into CLI-invokable tasks. There are a few basic tasks defined as examples already.
 
-- test for proxy
-- test for internet access
-- scan ports on target
+List available invoke commands from outside the container:
+
+    docker compose exec app1 inv --list
+
+Check internet speed using speedtest:
+
+    docker compose exec app1 inv speedtest
+
+Use a command that requires elevated privileges:
+
+    docker compose exec -u root app1 inv dockerinfo
+
+Some possible tasks to add-to/replace the default options:
+
+- test for proxy in the environment
+- test for internet access issues
+- scan ports on target host
 - get network response times
-- setup a reverse proxe for remote shell (outbond from container host to remote support system)
+- setup a reverse proxy for remote shell (outbond from container host to remote support system)
+- create a container project from defined template
 
 ## Notes
 
