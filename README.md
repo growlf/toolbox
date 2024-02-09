@@ -31,6 +31,12 @@ Using `tcpdump` can either be done from within a shell of the toolbox container,
 
     docker run --rm -it --net=host ghcr.io/growlf/toolbox sudo tcpdump
 
+### Running scripts and commands
+
+You can also run arbitrary commands and scripts directly from the commandline like so:
+
+    docker compose run --rm -it app1 ./test_net.sh
+
 ## Invoke
 
 Some tasks to add to the default options:

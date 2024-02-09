@@ -34,6 +34,10 @@ ip4=$(/sbin/ip route get 8.8.8.8 | awk '/src/ { print $7 }')
 dev=$(/sbin/ip route get 8.8.8.8 | awk '/src/ { print $5 }')
 echo "Host IP address on $dev: $ip4"
 
+# Get external IP address
+external=$(dig @resolver4.opendns.com myip.opendns.com +short)
+echo "Public IP address: $external"
+
 # Get and test acces to the default gateway
 default_gateway=$(/sbin/ip route | awk '/default/ { print $3 }')
 ping -c 1 "$default_gateway" > /dev/null
