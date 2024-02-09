@@ -41,7 +41,13 @@ Using `tcpdump` can either be done from within a shell of the toolbox container,
 
     docker run --rm -it --net=host ghcr.io/growlf/toolbox sudo tcpdump
 
-### Invoke Command
+### Running scripts and commands
+
+You can also run arbitrary commands and scripts directly from the commandline like so:
+
+    docker compose run --rm -it app1 ./test_net.sh
+
+## Invoke
 
 This image implements [Python Invoke](https://www.pyinvoke.org/), for managing shell-oriented subprocesses and organizing executable Python code into CLI-invokable tasks. There are a few basic tasks defined as examples already.
 
