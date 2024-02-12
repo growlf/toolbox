@@ -40,5 +40,5 @@ services:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
-    command: ["/bin/bash"]
+    command: ["/bin/ksh"]
     
