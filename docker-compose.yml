@@ -41,4 +41,18 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
-    
+  
+  # New PostgreSQL database service
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: devdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db-data:
