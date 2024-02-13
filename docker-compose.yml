@@ -1,6 +1,5 @@
-version: '3.8'
+version: "3.8"
 services:
-
   # Building and testing environment
   dev:
     build:
@@ -31,8 +30,7 @@ services:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
-    
-    
+
   # Example of running the same image with different intent
   app2:
     image: ghcr.io/growlf/toolbox:latest
@@ -41,4 +39,19 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
-    
+
+  # Example of running a different image. This one is a MySQL server
+  db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
