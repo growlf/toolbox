@@ -1,5 +1,4 @@
-FROM python:3.8
-
+FROM python:3.12-slim-bullseye
 # Passed from Github Actions
 ARG GIT_VERSION_TAG=unspecified
 ARG GIT_COMMIT_MESSAGE=unspecified
