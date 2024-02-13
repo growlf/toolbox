@@ -11,11 +11,11 @@ services:
       - TESTVAR=${TESTVAR:-app}
     stdin_open: true
     tty: true
-    command: [ "/bin/zsh" ]
+    command: ["/bin/zsh"]
     volumes:
       - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
       - ${HOME}/.ssh:/home/ubuntu/.ssh
-      - ${PWD}:/app
+      - /Users/syriljacob/Desktop/Ucalgary 2023-2024/ENSF 400/lab4/toolbox:/app
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
 
@@ -26,12 +26,13 @@ services:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
-    command: [ "/bin/zsh" ]
+    command: ["/bin/zsh"]
     volumes:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
-
+    
+    
   # Example of running the same image with different intent
   app2:
     image: ghcr.io/growlf/toolbox:latest
@@ -39,4 +40,5 @@ services:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
-    command: [ "/bin/bash" ]
+    command: ["/bin/bash"]
+    
