@@ -4,7 +4,7 @@ import logging
 import docker
 import pyfiglet 
 import speedtest
-
+import requests
 
 
 ###########################################
@@ -189,3 +189,17 @@ def dockertest(c, verbose=0):
     pprint(client.swarm.attrs)
 
     client.close()
+
+def test_internet_access():
+    try:
+        # Try to access a well-known website, e.g., Google
+        response = requests.get("https://www.google.com")
+        if response.status_code == 200:
+            print("Internet access test successful!")
+        else:
+            print(f"Failed to access website. Status code: {response.status_code}")
+    except requests.ConnectionError:
+        print("Failed to connect to the internet.")
+
+if __name__ == "__main__":
+    test_internet_access()
