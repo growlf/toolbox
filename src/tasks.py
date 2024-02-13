@@ -51,7 +51,9 @@ def help(c, verbose=0):
     print("Some additional commands that are also installed and might be of use:  whois, speedtest, mtr, tcpdump, nmap, nc")
 
 @task(
-    help={'name': "Name of the person to say hi to.",
+        
+        # this is the change I made
+    help={'name': "The name to say hello to. Defaults to 'world'",
         'verbose': "Logging and verbosity level"
         }, 
     optional=['name'],
