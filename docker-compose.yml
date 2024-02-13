@@ -1,44 +1,17 @@
-version: '3.8'
+version: '3'
+
 services:
-
-  # Building and testing environment
-  dev:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: ghcr.io/growlf/toolbox:latest
-    environment:
-      - TESTVAR=${TESTVAR:-app}
-    stdin_open: true
-    tty: true
-    command: ["/bin/zsh"]
+  toolbox:
+    image: Anfaal25/toolbox:latest
+    ports:
+      - "8080:8080"  # Example port mapping
     volumes:
-      - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
-      - ${HOME}/.ssh:/home/ubuntu/.ssh
-      - ${PWD}:/app
-      - /var/run/docker.sock:/var/run/docker.sock
-    network_mode: "host"
+      - /path/to/your/local/files:/container/mount/point  # Example volume mapping
+    environment:
+      - ENV_VARIABLE=value  # Example environment variable
+    networks:
+      - your_network_name  # Example network
 
-  # Example container with DooD and host file/net access
-  app1:
-    image: ghcr.io/growlf/toolbox:latest
-    environment:
-      - TESTVAR=${TESTVAR:-app2}
-    stdin_open: true
-    tty: true
-    command: ["/bin/zsh"]
-    volumes:
-      - /:/host
-      - /var/run/docker.sock:/var/run/docker.sock
-    network_mode: "host"
-    
-    
-  # Example of running the same image with different intent
-  app2:
-    image: ghcr.io/growlf/toolbox:latest
-    environment:
-      - TESTVAR=${TESTVAR:-app2}
-    stdin_open: true
-    tty: true
-    command: ["/bin/bash"]
-    
+networks:
+  your_network_name:
+    driver: bridge
