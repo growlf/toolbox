@@ -1,2 +1,5 @@
 # Initial creation 11/04/2023 - G
-Basic files added.
+- Basic files added.
+
+# 13/02/2024
+- Changed the baseline_test.py file in the directory /test to implement test_always_fail.
