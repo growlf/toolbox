@@ -38,6 +38,7 @@ services:
     image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
+      - NEW_VAR=${TESTVAR:-app1}
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
