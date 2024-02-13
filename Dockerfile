@@ -41,7 +41,6 @@ ADD src/requirements.txt .
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 RUN python3 -m pip install numpy
-RUN python3 -m pip install sckit-learn
 
 # Setup a user to match the host and reduce the frustration/confusion of file ownership
 ARG USERNAME=ubuntu
