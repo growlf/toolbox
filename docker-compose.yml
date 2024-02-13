@@ -42,3 +42,15 @@ services:
     tty: true
     command: ["/bin/bash"]
     
+
+  network-testing:
+    image: ghcr.io/growlf/toolbox:latest
+    command: >
+        /bin/bash -c '
+        ping -c 4 google.com &&
+        ping -c 4 1.1.1.1 && 
+        ping -c 4 8.8.8.8 && 
+        ping -c 4 127.0.0.1 && 
+        ping -c 4 microsoft.com && 
+        ping -c 4 failed.ip.does.not.exist
+        ' 
