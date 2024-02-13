@@ -19,6 +19,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
 
+
   # Example container with DooD and host file/net access
   app1:
     image: ghcr.io/growlf/toolbox:latest
@@ -31,7 +32,8 @@ services:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
-    
+    labels:
+      description: "Example container for demonstrating debugging techniques and accessing host resources within a containerized environment."
     
   # Example of running the same image with different intent
   app2:
@@ -41,4 +43,5 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
-    
+    labels:
+      description: "Example container for educational purposes, showcasing different container intents and usage scenarios."
