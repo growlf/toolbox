@@ -14,5 +14,5 @@ services:
       - portainerVolume:/var/run/docker.sock
     network_mode: "host"
 
-  volumes:
-    portainerVolume:
+volumes:
+  portainerVolume:
