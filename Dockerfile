@@ -23,7 +23,6 @@ RUN apt-get -yq install --no-install-recommends \
         tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping wget nmap netcat-traditional \
         procps \
         htop \
-        curl \  #added curl
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
