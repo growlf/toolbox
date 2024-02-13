@@ -185,6 +185,7 @@ def dockertest(c, verbose=0):
     # print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
     client.images.pull("netyeti/toolbox:latest")
 
+    print("Docker Swarm Attributes:")
     from pprint import pprint
     pprint(client.swarm.attrs)
 
