@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+
+  # Building and testing environment
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/growlf/toolbox:testing
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+    volumes:
+      - portainer_data:/var/run/docker.sock
+    network_mode: "host"
+
+volumes:
+  portainer_data: 
