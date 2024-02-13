@@ -72,6 +72,10 @@ Some possible tasks to add-to/replace the default options:
 - setup a reverse proxy for remote shell (outbond from container host to remote support system)
 - create a container project from defined template
 
+## IP adress Printer
+App to print its own IP address to the terminal. To use it run the following comand. this will print the IP adress of itself to the terminal.
+
+    docker-compose run --rm app3
 
 ## Use with Portainer
 
