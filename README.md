@@ -31,21 +31,27 @@ You can find more at:
 
 ### Custom Shell
 
-Using the `docker-compose.yml` file (included) makes certain tasks easier.  For example, opening a self-removing ZShell instance can be done lke so:
+Using the `docker-compose.yml` file (included) makes certain tasks easier. For example, opening a self-removing ZShell instance can be done like so:
 
-    docker compose run --rm app1
+```shell
+docker compose run --rm app1
+```
 
 ### Monitor packets in the local network
 
 Using `tcpdump` can either be done from within a shell of the toolbox container, or direct commandline like so:
 
-    docker run --rm -it --net=host ghcr.io/growlf/toolbox sudo tcpdump
+```shell
+docker run --rm -it --net=host ghcr.io/growlf/toolbox sudo tcpdump
+```
 
 ### Running scripts and commands
 
 You can also run arbitrary commands and scripts directly from the commandline like so:
 
-    docker compose run --rm -it app1 ./test_net.sh
+```shell
+docker compose run --rm -it app1 ./test_net.sh
+```
 
 ## Invoke
 
@@ -53,15 +59,22 @@ This image implements [Python Invoke](https://www.pyinvoke.org/), for managing s
 
 List available invoke commands from outside the container:
 
-    docker compose exec app1 inv --list
+```shell
+docker compose exec app1 inv --list
+```
 
 Check internet speed using speedtest:
 
-    docker compose exec app1 inv speedtest
+```shell
+docker compose exec app1 inv speedtest
+```
 
 Use a command that requires elevated privileges:
 
-    docker compose exec -u root app1 inv dockerinfo
+```shell
+docker compose exec -u root app1 inv dockerinfo
+```
+
 
 Some possible tasks to add-to/replace the default options:
 
