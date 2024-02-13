@@ -1,60 +1,12 @@
-# version: '3.8'
-# services:
-
-#   # Building and testing environment
-#   dev:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     image: ghcr.io/growlf/toolbox:latest
-#     environment:
-#       - TESTVAR=${TESTVAR:-app}
-#     stdin_open: true
-#     tty: true
-#     command: ["/bin/zsh"]
-#     volumes:
-#       - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
-#       - ${HOME}/.ssh:/home/ubuntu/.ssh
-#       - ${PWD}:/app
-#       - /var/run/docker.sock:/var/run/docker.sock
-#     network_mode: "host"
-
-
-#   # Example container with DooD and host file/net access
-#   app1:
-#     image: ghcr.io/growlf/toolbox:latest
-#     environment:
-#       - TESTVAR=${TESTVAR:-app2}
-#     stdin_open: true
-#     tty: true
-#     command: ["/bin/zsh"]
-#     volumes:
-#       - /:/host
-#       - /var/run/docker.sock:/var/run/docker.sock
-#     network_mode: "host"
-#     labels:
-#       description: "Example container for demonstrating debugging techniques and accessing host resources within a containerized environment."
-    
-#   # Example of running the same image with different intent
-#   app2:
-#     image: ghcr.io/growlf/toolbox:latest
-#     environment:
-#       - TESTVAR=${TESTVAR:-app2}
-#     stdin_open: true
-#     tty: true
-#     command: ["/bin/bash"]
-#     labels:
-#       description: "Example container for educational purposes, showcasing different container intents and usage scenarios."
-
 version: '3.8'
 services:
 
   # Building and testing environment
   dev:
     build:
-      context: https://github.com/growlf/toolbox.git#ella-branch
+      context: .
       dockerfile: Dockerfile
-    image: ghcr.io/growlf/toolbox:ella-branch
+    image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app}
     stdin_open: true
@@ -70,7 +22,7 @@ services:
 
   # Example container with DooD and host file/net access
   app1:
-    image: ghcr.io/growlf/toolbox:ella-branch
+    image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
@@ -85,7 +37,7 @@ services:
     
   # Example of running the same image with different intent
   app2:
-    image: ghcr.io/growlf/toolbox:ella-branch
+    image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
@@ -93,3 +45,4 @@ services:
     command: ["/bin/bash"]
     labels:
       description: "Example container for educational purposes, showcasing different container intents and usage scenarios."
+
