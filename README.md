@@ -68,7 +68,6 @@ Some possible tasks to add-to/replace the default options:
 - test for proxy in the environment
 - test for internet access issues
 - scan ports on target host
-- get network response times
 - setup a reverse proxy for remote shell (outbond from container host to remote support system)
 - create a container project from defined template
 

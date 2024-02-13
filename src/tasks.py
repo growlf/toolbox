@@ -4,7 +4,7 @@ import logging
 import docker
 import pyfiglet 
 import speedtest
-
+from datetime import datetime
 
 
 ###########################################
@@ -153,9 +153,9 @@ def dockerinfo(c, verbose=0):
 
     #from pprint import pprint
     #pprint(ddf['Volumes'])
-
-####TODO: check outbound connections
-    print(f"{'verify correct time':<20}: {'TBD'}")        
+    
+    correct_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"{'verify correct time':<20}: {correct_time}")        
 ####TODO: add task to check remaining disk size on host system
     print(f"{'Drive space':<20}: {'TBD'}")        
 ####TODO: check outbound connections
