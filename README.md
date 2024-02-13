@@ -31,7 +31,7 @@ You can find more at:
 
 ### Custom Shell
 
-Using the `docker-compose.yml` file (included) makes certain tasks easier.  For example, opening a self-removing ZShell instance can be done lke so:
+Using the `docker-compose.yml` file (included) makes certain tasks easier. For example, opening a self-removing ZShell instance can be done lke so:
 
     docker compose run --rm app1
 
@@ -72,7 +72,6 @@ Some possible tasks to add-to/replace the default options:
 - setup a reverse proxy for remote shell (outbond from container host to remote support system)
 - create a container project from defined template
 
-
 ## Use with Portainer
 
 Use the `portainer-compose.yml` file and modify to your hearts content.
@@ -86,3 +85,7 @@ Use the `portainer-compose.yml` file and modify to your hearts content.
 - https://pypi.org/project/portscan/
 - https://docs.pyinvoke.org/en/stable/
 - https://docker-py.readthedocs.io/en/stable/
+  here
+  here
+  here
+  here
