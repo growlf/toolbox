@@ -13,9 +13,6 @@ services:
     tty: true
     command: ["/bin/zsh"]
     volumes:
-      - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
-      - ${HOME}/.ssh:/home/ubuntu/.ssh
-      - /Users/syriljacob/Desktop/Ucalgary 2023-2024/ENSF 400/lab4/toolbox:/app
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
 
