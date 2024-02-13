@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     image: ghcr.io/growlf/toolbox:latest
     environment:
-      - TESTVAR=${TESTVAR:-app}
+      - TESTVAR=${TESTVAR:-app} # *CHANGE MADE* Set TESTVAR environment variable with a default value
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
@@ -38,7 +38,8 @@ services:
     image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
-      - NEW_VAR=${TESTVAR:-app1}
+      - NEW_VAR=${TESTVAR:-app1} # *CHANGE* Set NEW_VAR environment variable with a default value
+      # Provides a default value for the environment variables while allowing the user to set this as needed as well.
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
