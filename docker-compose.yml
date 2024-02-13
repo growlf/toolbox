@@ -15,7 +15,7 @@ services:
     volumes:
       - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
       - ${HOME}/.ssh:/home/ubuntu/.ssh
-      - ${PWD}:/app
+      - ./:/app
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
 
@@ -38,6 +38,7 @@ services:
     image: ghcr.io/growlf/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
+      - TESTVAR2=${TESTVAR:-app2}
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
