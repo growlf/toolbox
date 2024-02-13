@@ -72,6 +72,14 @@ Some possible tasks to add-to/replace the default options:
 - setup a reverse proxy for remote shell (outbond from container host to remote support system)
 - create a container project from defined template
 
+## APP 3
+
+Run
+```bash
+    docker-compose run --rm app3
+```
+to display a "VERY USEFUL FEATURE"
+
 ## Notes
 
 - https://ohmyz.sh/#install

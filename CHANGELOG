@@ -1,2 +1,5 @@
 # Initial creation 11/04/2023 - G
 Basic files added.
+
+# Update 2/12/2024 - D
+added app3 to docker-compose.yml, running prints "VERY USEFUL FEATURE"
