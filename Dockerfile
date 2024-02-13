@@ -4,25 +4,27 @@ FROM python:3.12-slim-bullseye
 ARG GIT_VERSION_TAG=unspecified
 ARG GIT_COMMIT_MESSAGE=unspecified
 ARG GIT_VERSION_HASH=unspecified
+ARG PYTHON_VERSION=3.12
+
 
 # Install updates and docker
 RUN apt-get -yq update && apt-get -yq install \
-        curl \
-        gnupg \
+    curl \
+    gnupg \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
     && echo "deb https://download.docker.com/linux/debian bullseye stable" | tee /etc/apt/sources.list.d/docker.list \
     && apt-get -yq update \
     && apt-get -yq install --no-install-recommends \
-        docker-ce-cli docker-compose-plugin
+    docker-ce-cli docker-compose-plugin
 
 # Install apps/tools
 RUN apt-get -yq install --no-install-recommends \
-        sudo openssh-client mosquitto-clients \
-        nano vim less \
-        zsh git rsync bzip2 \
-        tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping wget nmap netcat-traditional \
-        procps \
-        htop \
+    sudo openssh-client mosquitto-clients \
+    nano vim less \
+    zsh git rsync bzip2 \
+    tcpdump traceroute iproute2 dnsutils whois mtr iftop iputils-ping wget nmap netcat-traditional \
+    procps \
+    htop \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \

@@ -86,3 +86,8 @@ Use the `portainer-compose.yml` file and modify to your hearts content.
 - https://pypi.org/project/portscan/
 - https://docs.pyinvoke.org/en/stable/
 - https://docker-py.readthedocs.io/en/stable/
+
+
+## Update Made:
+
+- added an arg in the DockerFile to specify the pythonn version being used in the docker image. This is useful since it parameterize the Python version used within the Docker image. This means you can specify the Python version at build time, giving you flexibility in the Python environment within the container.
