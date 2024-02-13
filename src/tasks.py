@@ -2,16 +2,17 @@ from invoke import task
 import invoke
 import logging
 import docker
-import pyfiglet 
+import pyfiglet
 import speedtest
-
 
 
 ###########################################
 # Library functions
 
-# Create a logger object 
+# Create a logger object
 logger = logging.getLogger(__name__)
+
+
 def _set_log_level(verbose=0) -> None:
     """Set the logging level
 
@@ -26,15 +27,15 @@ def _set_log_level(verbose=0) -> None:
 
     # Actually set the logging level
     logging.basicConfig(level=log_levels[verbose])
-    
+
 
 ###########################################
 # Tasks
 
 @task(
-    default=True, 
+    default=True,
     incrementable=["verbose"]
-    )
+)
 def help(c, verbose=0):
     """Shows the help screen.
 
@@ -50,16 +51,17 @@ def help(c, verbose=0):
     print("Try running `inv --help` for more information or `inv --list` to see a list of subcommands. ")
     print("Some additional commands that are also installed and might be of use:  whois, speedtest, mtr, tcpdump, nmap, nc")
 
+
 @task(
     help={'name': "Name of the person to say hi to.",
-        'verbose': "Logging and verbosity level"
-        }, 
+          'verbose': "Logging and verbosity level"
+          },
     optional=['name'],
     incrementable=['verbose']
-    )
+)
 def hello(c, name="world", verbose=0):
     """Say hello
-    
+
     Args:
         c (_type_): _description_
         name (str, optional): _description_. Defaults to "world".
@@ -96,7 +98,7 @@ def netspeed(c, verbose=0):
     s.upload(threads=threads)
 
     results_dict = s.results.dict()
-    
+
     logger.debug(results_dict)
     logger.debug(s.results.server)
     print(f"{'PING':<20}: {int(s.results.ping)}ms")
@@ -114,7 +116,7 @@ def dockerinfo(c, verbose=0):
     logger.debug("Looking for Docker installation...")
 
     try:
-        client = docker.from_env()        
+        client = docker.from_env()
     except Exception as e:
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
@@ -143,7 +145,7 @@ def dockerinfo(c, verbose=0):
         for setting in loki.settings:
             print(f"{' ':<20}: {setting}:{loki.settings.get(setting)}")
     else:
-        print(f"{'Loki':<20}: {'Loki not found'}")        
+        print(f"{'Loki':<20}: {'Loki not found'}")
 
     print('-'*40)
     print(f"{'HttpProxy':<20}: {info.get('HttpProxy')}")
@@ -151,22 +153,23 @@ def dockerinfo(c, verbose=0):
     print(f"{'NoProxy':<20}: {info.get('NoProxy')}")
     print('-'*40)
 
-    #from pprint import pprint
-    #pprint(ddf['Volumes'])
+    # from pprint import pprint
+    # pprint(ddf['Volumes'])
 
-####TODO: check outbound connections
-    print(f"{'verify correct time':<20}: {'TBD'}")        
-####TODO: add task to check remaining disk size on host system
-    print(f"{'Drive space':<20}: {'TBD'}")        
-####TODO: check outbound connections
-    print(f"{'Firewall':<20}: {'TBD'}")        
-    #declare -a urls=("https://www.google.com 200"
+# TODO: check outbound connections
+    print(f"{'verify correct time':<20}: {'TBD'}")
+# TODO: add task to check remaining disk size on host system
+    print(f"{'Drive space':<20}: {'TBD'}")
+# TODO: check outbound connections
+    print(f"{'Firewall':<20}: {'TBD'}")
+    # declare -a urls=("https://www.google.com 200"
     # "https://arch.archfx.io/api/v1/server/ 200"
     # "https://portainer.overseer.archfx.io 200"
     # "https://portaineredge.overseer.archfx.io 404"
     # "https://ecr.archfx.io 401"
-####TODO: get docker-compose version
-    
+# TODO: get docker-compose version
+
+
 @task(incrementable=['verbose'])
 def dockertest(c, verbose=0):
     """Test Docker installation
@@ -177,7 +180,7 @@ def dockertest(c, verbose=0):
     logger.debug("Testing Docker installation...")
 
     try:
-        client = docker.from_env()        
+        client = docker.from_env()
     except Exception as e:
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
