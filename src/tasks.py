@@ -189,3 +189,4 @@ def dockertest(c, verbose=0):
     pprint(client.swarm.attrs)
 
     client.close()
+    # This is a change
