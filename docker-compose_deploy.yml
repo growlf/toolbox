@@ -10,8 +10,8 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
-    volumes: portainerVolume:/var/run/docker.sock
+    volumes: 
+    - portainerVolume:/var/run/docker.sock
+    - portainerVolume
     network_mode: "host"
 
-volumes:
-  portainerVolume:
