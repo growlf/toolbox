@@ -92,4 +92,5 @@ ADD --chown=1000:1000 --chmod=+x src/test_net.sh .
 ADD --chown=1000:1000 src/nodes.list .
 
 # Set default command
+#This is the command to enter terminal
 CMD ["/bin/zsh"]
