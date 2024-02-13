@@ -91,5 +91,8 @@ ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/a
 ADD --chown=1000:1000 --chmod=+x src/test_net.sh .
 ADD --chown=1000:1000 src/nodes.list .
 
+#adding a useful python dependency 'pipenv': Group22-K
+RUN pip install pipenv
+
 # Set default command
 CMD ["/bin/zsh"]
