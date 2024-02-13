@@ -21,7 +21,7 @@ services:
 
   # Example container with DooD and host file/net access
   app1:
-    image: ghcr.io/growlf/toolbox:latest
+    image: ghcr.io/growlf/toolbox:latest 
     environment:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
@@ -43,6 +43,7 @@ services:
     command: ["/bin/bash"]
     
 
+# to run this just go docker-compose logs network-testing
   network-testing:
     image: ghcr.io/growlf/toolbox:latest
     command: >
@@ -52,5 +53,4 @@ services:
         ping -c 4 8.8.8.8 && 
         ping -c 4 127.0.0.1 && 
         ping -c 4 microsoft.com && 
-        ping -c 4 failed.ip.does.not.exist
         ' 
