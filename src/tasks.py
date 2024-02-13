@@ -22,7 +22,7 @@ def _set_log_level(verbose=0) -> None:
     log_levels = ["CRITICAL", "ERROR",  "WARNING", "INFO", "DEBUG"]
 
     # Ensure verbosity stays within the tollerances
-    verbose = 4 if verbose > 4 else verbose
+    verbose = min(4, verbose)
 
     # Actually set the logging level
     logging.basicConfig(level=log_levels[verbose])
@@ -68,7 +68,7 @@ def hello(c, name="world", verbose=0):
     _set_log_level(verbose)
     logger.debug("Set loglevel.")
 
-    print("Hello {}!".format(name))
+    print(f"Hello {name}!")
     logger.debug("Said hello.")
 
 
