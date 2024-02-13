@@ -41,4 +41,12 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
-    
+
+  # App to print its own IP address
+  app3:
+    image: ghcr.io/growlf/toolbox:latest
+    environment:
+      - TESTVAR=${TESTVAR:-app3}
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash", "-c", "hostname -I | awk '{print $1}'"]
