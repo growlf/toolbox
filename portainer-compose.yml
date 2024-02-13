@@ -11,5 +11,8 @@ services:
     tty: true
     command: ["/bin/zsh"]
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - portainerVolume:/var/run/docker.sock
     network_mode: "host"
+
+volumes:
+  portainerVolume:
