@@ -40,5 +40,18 @@ services:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
+
     command: ["/bin/bash"]
+    # Debugging container linked to the dev service
+  debugger:
+    image: ghcr.io/growlf/debugger:latest
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
+    volumes:
+      - ${PWD}:/app
+    depends_on:
+      - dev
+
+  
     
