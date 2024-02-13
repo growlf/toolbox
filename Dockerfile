@@ -92,4 +92,6 @@ ADD --chown=1000:1000 --chmod=+x src/test_net.sh .
 ADD --chown=1000:1000 src/nodes.list .
 
 # Set default command
+# This sets the default command to run when the container starts.
+# Users can override this command by providing a different command when launching the container.
 CMD ["/bin/zsh"]
