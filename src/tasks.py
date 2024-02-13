@@ -182,7 +182,7 @@ def dockertest(c, verbose=0):
         raise invoke.Exit("ERROR: Docker connection failed.", e)
     info = client.info()
     plugins = client.plugins.list()
-    # print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
+    print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
     client.images.pull("netyeti/toolbox:latest")
 
     from pprint import pprint
