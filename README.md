@@ -1,4 +1,4 @@
-# Toolbox
+# Toolbox:Jori Edition
 
 [![GitHub Release](https://img.shields.io/github/v/release/growlf/toolbox?logo=docker&logoColor=white)](https://github.com/growlf/toolbox/pkgs/container/toolbox)
 [![GitHub Tag](https://img.shields.io/github/v/tag/growlf/toolbox?logo=docker&logoColor=white&label=Latest)](https://github.com/growlf/toolbox/pkgs/container/toolbox)
@@ -10,7 +10,7 @@
 
 Containerized tools for on-the-go troubleshooting and developing in alien environments.
 
-By: Garth Johnson & others
+By: Jori Duguid and others
 
 The purpose of this container image is to provide tools that can help diagnose issues and ease/simplify development struggles on alien envirnments.
 
