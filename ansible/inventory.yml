@@ -1,0 +1,10 @@
+myhosts:
+  hosts:
+    localhost:
+      ansible_host: localhost
+    server1:
+      ansible_host: server1
+    server2:
+      ansible_host: server2
+    server3:
+      ansible_host: nexus
