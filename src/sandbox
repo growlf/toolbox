@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# This is a simple example of using the toolbox image as a
+# sandbox to partially insulate the host system from a temporary 
+# development task or testing scenario
+
+docker run \
+    --rm \
+    -it \
+    --net=host \
+    --name=sandbox \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v ${PWD}:/home/ubuntu/sandbox \
+    -v ${HOME}/.gitconfig:/home/ubuntu/.gitconfig \
+    -v ${HOME}/.ssh:/home/ubuntu/.ssh \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -w /home/ubuntu/sandbox \
+    ghcr.io/growlf/toolbox
