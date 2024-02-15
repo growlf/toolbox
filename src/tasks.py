@@ -175,6 +175,7 @@ def dockertest(c, verbose=0):
     _set_log_level(verbose)
 
     logger.debug("Testing Docker installation...")
+    
 
     try:
         client = docker.from_env()        
@@ -183,6 +184,8 @@ def dockertest(c, verbose=0):
     info = client.info()
     plugins = client.plugins.list()
     # print(client.containers.run('netyeti/toolbox:latest', 'echo hello world'))
+    pprint("client Info:",info) # prints the client's info
+    pprint("plugins List:",plugins ) #prints plugin's list info
     client.images.pull("netyeti/toolbox:latest")
 
     from pprint import pprint
