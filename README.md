@@ -16,7 +16,7 @@ The purpose of this container image is to provide tools that can help diagnose i
 
 Additionally, this container image can easily used for:
 
-- devlopment new container prototypes
+- developed new container prototypes
 - debugging container builds and deployments
 - educational intents for container development/examples (i.e. workflows and devcontainers)
 
@@ -76,6 +76,10 @@ Some possible tasks to add-to/replace the default options:
 ## Use with Portainer
 
 Use the `portainer-compose.yml` file and modify to your hearts content.
+
+## Fixed grammer
+
+Fixed grammar
 
 ## Notes
 
