@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/growlf/toolbox:latest
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+    volumes:
+      - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
+      - ${HOME}/.ssh:/home/ubuntu/.ssh
+      - ${PWD}:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
+
+  app1:
+    image: ghcr.io/growlf/toolbox:latest
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+    volumes:
+      - /:/host
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
+
+  app2:
+    image: ghcr.io/growlf/toolbox:latest
+    environment:
+      - TESTVAR=${TESTVAR:-app2}
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+
+    
