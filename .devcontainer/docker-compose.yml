@@ -11,10 +11,8 @@ services:
     #   context: .
     #   dockerfile: .devcontainer/Dockerfile
 
-    volumes:
-      # Update this to wherever you want VS Code to mount the folder of your project
-      - ..:/workspaces:cached
-      - /var/run/docker.sock:/var/run/docker.sock
+# Mount the volume to this directory
+    volumes: /lab04volume
 
     # Uncomment the next four lines if you will use a ptrace-based debugger like C++, Go, and Rust.
     # cap_add:
