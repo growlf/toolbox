@@ -27,3 +27,11 @@ services:
  
     # Allow the dev container to use the same network as the host
     network_mode: "host"
+
+    # Health Check
+    # uncomment the next 5 lines for using the healthcheck and replace the placeholder url with the appropriate one
+    #healthcheck:
+    #  test: ["CMD", "curl", "--fail", "http://localhost:your_app_port/health"]
+    #  interval: 30s
+    #  timeout: 10s
+    #  retries: 3
