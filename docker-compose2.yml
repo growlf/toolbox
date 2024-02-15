@@ -9,6 +9,5 @@ services:
     tty: true
     command: ["/bin/zsh"]
     volumes:
-      - /myNewBranch:/app  # Adjust the volume mount to your sub-branch directory
       - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
