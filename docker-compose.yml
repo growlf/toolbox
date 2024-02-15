@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.8' # specify docker-compose version
 services:
 
   # Building and testing environment
@@ -11,8 +11,8 @@ services:
       - TESTVAR=${TESTVAR:-app}
     stdin_open: true
     tty: true
-    command: ["/bin/zsh"]
-    volumes:
+    command: ["/bin/zsh"] # default command
+    volumes: # mount the current directory to the container
       - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
       - ${HOME}/.ssh:/home/ubuntu/.ssh
       - ${PWD}:/app
@@ -40,5 +40,5 @@ services:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
-    command: ["/bin/bash"]
+    command: ["/bin/bash"] # override default command
     
