@@ -69,7 +69,7 @@ def hello(c, name="world", verbose=0):
     logger.debug("Set loglevel.")
 
     print("Hello {}!".format(name))
-    logger.debug("Said hello.")
+    logger.debug("Said hello, say hello back.")
 
 
 @task(incrementable=['verbose'])
