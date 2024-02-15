@@ -43,6 +43,9 @@ function _failure_msg () {
 function _warning_msg () {
     echo "WARNING: $@"
 }
+function _done_msg () {
+    echo "DONE: $@"
+}
 
 
 #######################################
@@ -232,6 +235,7 @@ function do_arguments() {
         usage
         _failure_msg "Error: Unknown Command: ${args}"
     fi
+    _done_msg "All checks completed"
     exit 0
 }
 #######################################
