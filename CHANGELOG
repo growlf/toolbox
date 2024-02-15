@@ -1,2 +1,5 @@
 # Initial creation 11/04/2023 - G
 Basic files added.
+
+# Modification to Dockerfile line 1, changed the type of image to alpine (02/15/2024) - group9
+Dockerfile nodified.
