@@ -1,6 +1,7 @@
 FROM python:3.12-slim-bullseye
 
 # Passed from Github Actions
+
 ARG GIT_VERSION_TAG=unspecified \
     GIT_COMMIT_MESSAGE=unspecified \
     GIT_VERSION_HASH=unspecified
