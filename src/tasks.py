@@ -48,7 +48,7 @@ def help(c, verbose=0):
     print(ascii_banner)
 
     print("Try running `inv --help` for more information or `inv --list` to see a list of subcommands. ")
-    print("Some additional commands that are also installed and might be of use:  whois, speedtest, mtr, tcpdump, nmap, nc")
+    print("hehe haha")
 
 @task(
     help={'name': "Name of the person to say hi to.",
