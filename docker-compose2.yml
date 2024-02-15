@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/growlf/toolbox
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+    volumes:
+      - /myNewBranch:/app  # Adjust the volume mount to your sub-branch directory
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"
