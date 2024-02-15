@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ghcr.io/Abhylmao/toolbox:testing
+    image: Abhylmao/toolbox:testing
     stdin_open: true
     tty: true
     command: ["/bin/zsh"]
