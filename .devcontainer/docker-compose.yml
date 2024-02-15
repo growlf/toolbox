@@ -15,6 +15,7 @@ services:
       # Update this to wherever you want VS Code to mount the folder of your project
       - ..:/workspaces:cached
       - /var/run/docker.sock:/var/run/docker.sock
+      - group11_volume:/tmp
 
     # Uncomment the next four lines if you will use a ptrace-based debugger like C++, Go, and Rust.
     # cap_add:
@@ -27,3 +28,5 @@ services:
  
     # Allow the dev container to use the same network as the host
     network_mode: "host"
+  volumes:
+    group11_volume:
