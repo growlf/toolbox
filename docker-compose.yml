@@ -13,10 +13,10 @@ services:
     tty: true
     command: ["/bin/zsh"]
     volumes:
-      - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
-      - ${HOME}/.ssh:/home/ubuntu/.ssh
-      - ${PWD}:/src
-      - /var/run/docker.sock:/var/run/docker.sock
+    - ${HOME}/.gitconfig:/home/ubuntu/.gitconfig
+    - ${HOME}/.ssh:/home/ubuntu/.ssh
+    - .:/src
+    - /var/run/docker.sock:/var/run/docker.sock
     network_mode: "host"
 
   # Example container with DooD and host file/net access
