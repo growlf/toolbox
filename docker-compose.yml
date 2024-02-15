@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ghcr.io/growlf/toolbox:latest
+    image: ghcr.io/Abhylmao/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app}
     stdin_open: true
@@ -21,7 +21,7 @@ services:
 
   # Example container with DooD and host file/net access
   app1:
-    image: ghcr.io/growlf/toolbox:latest
+    image: ghcr.io/Abhylmao/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
@@ -35,7 +35,7 @@ services:
     
   # Example of running the same image with different intent
   app2:
-    image: ghcr.io/growlf/toolbox:latest
+    image: ghcr.io/Abhylmao/toolbox:latest
     environment:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
