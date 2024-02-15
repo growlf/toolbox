@@ -55,9 +55,9 @@ List available invoke commands from outside the container:
 
     docker compose exec app1 inv --list
 
-Check internet speed using speedtest:
+Check internet speed using netspeed:
 
-    docker compose exec app1 inv speedtest
+    docker compose exec app1 inv netspeed
 
 Use a command that requires elevated privileges:
 
