@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# This shell script merely pops up a web-enabled opensource version of VS Code Server
+# Strictly speaking, this is not a part of toolbox, but is very useful tool for the box :)
+# See https://github.com/gitpod-io/openvscode-server for more info
+
+docker run \
+    -it \
+    --init \
+    -p 3000:3000 \
+    -v "$(pwd):/home/workspace:cached" \
+    gitpod/openvscode-server
