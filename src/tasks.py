@@ -165,7 +165,10 @@ def dockerinfo(c, verbose=0):
     # "https://portainer.overseer.archfx.io 200"
     # "https://portaineredge.overseer.archfx.io 404"
     # "https://ecr.archfx.io 401"
+    
 ####TODO: get docker-compose version
+    compose_version = info.get('Plugins', {}).get('Compose', [{}])[0].get('Version', 'Unknown')
+    print(f"{'docker-compose version':<20}: {compose_version}")
     
 @task(incrementable=['verbose'])
 def dockertest(c, verbose=0):
