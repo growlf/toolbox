@@ -31,18 +31,20 @@ OFFLINE=${OFFLINE:=false}
 #   Output CMDs
 #######################################
 function _banner_msg () {
-    echo -e "\n$@"
+    echo -e "\n$(date "+%Y-%m-%d %H:%M:%S") - $@"
 }
 function _success_msg () {
-    echo -e "$@"
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") - $@"
 }
 function _failure_msg () {
-    echo -e "FAILURE: $@"
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") - FAILURE: $@"
     exit 1
 }
 function _warning_msg () {
-    echo "WARNING: $@"
+    echo "$(date "+%Y-%m-%d %H:%M:%S") - WARNING: $@"
 }
+# Group 26 added timestamps to the messages above to allow for
+# better debugging and better logging.
 
 
 #######################################
