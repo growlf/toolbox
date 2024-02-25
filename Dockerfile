@@ -31,7 +31,7 @@ RUN apt-get -yq install --no-install-recommends \
         tree \
         lsof \
         fish \
-        && sh -c "curl -fsSL https://starship.rs/install.sh | bash -s -- --yes" \
+        && apt-get autoremove -y \
         && apt-get clean -y \
         && rm -rf /var/lib/apt/lists/*
 
