@@ -48,6 +48,8 @@ ADD src/requirements.txt .
 # Install Python basic libraries
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
+RUN python3 -m pip install numpy
+
 # Setup a user to match the host and reduce the frustration/confusion of file ownership
 ARG USERNAME=ubuntu
 ARG USER_UID=1000
