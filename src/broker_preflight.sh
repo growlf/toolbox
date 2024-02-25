@@ -31,18 +31,22 @@ OFFLINE=${OFFLINE:=false}
 #   Output CMDs
 #######################################
 function _banner_msg () {
-    echo -e "\n$@"
+    echo -e "\n$(date "+%Y-%m-%d %H:%M:%S") - $@"
 }
 function _success_msg () {
-    echo -e "$@"
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") - $@"
 }
 function _failure_msg () {
-    echo -e "FAILURE: $@"
+    echo -e "$(date "+%Y-%m-%d %H:%M:%S") - FAILURE: $@"
     exit 1
 }
 function _warning_msg () {
-    echo "WARNING: $@"
+    echo "$(date "+%Y-%m-%d %H:%M:%S") - WARNING: $@"
 }
+function _done_msg () {
+    echo "DONE: $@"
+}
+
 
 
 #######################################
@@ -232,6 +236,7 @@ function do_arguments() {
         usage
         _failure_msg "Error: Unknown Command: ${args}"
     fi
+    _done_msg "All checks completed"
     exit 0
 }
 #######################################
