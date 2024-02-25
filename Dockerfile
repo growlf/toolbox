@@ -99,5 +99,11 @@ ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/a
 ADD --chown=1000:1000 --chmod=+x src/test_net.sh .
 ADD --chown=1000:1000 src/nodes.list .
 
+# Install homebrew
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add homebrew to the path
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+
 # Set default command
 CMD ["/bin/zsh"]
