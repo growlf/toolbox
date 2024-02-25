@@ -16,7 +16,7 @@ The purpose of this container image is to provide tools that can help diagnose i
 
 Additionally, this container image can easily used for:
 
-- devlopment new container prototypes
+- developing new container prototypes
 - debugging container builds and deployments
 - educational intents for container development/examples (i.e. workflows and devcontainers)
 
@@ -72,6 +72,7 @@ Some possible tasks to add-to/replace the default options:
 - setup a reverse proxy for remote shell (outbond from container host to remote support system)
 - create a container project from defined template
 
+
 ## APP 3
 
 Run
@@ -79,6 +80,11 @@ Run
     docker-compose run --rm app3
 ```
 to display a "VERY USEFUL FEATURE"
+
+
+## Use with Portainer
+
+Use the `portainer-compose.yml` file and modify to your hearts content.
 
 ## Notes
 
