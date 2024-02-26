@@ -1,7 +1,12 @@
 version: '3.8'
 services:
 
-  # Building and testing environment
+  hello1:
+    image: "alpine"
+    volumes: 
+      - "hello1volume"
+    ports: 
+      - "8080:8080"
   dev:
     build:
       context: .
@@ -41,4 +46,7 @@ services:
     stdin_open: true
     tty: true
     command: ["/bin/bash"]
-    
+
+
+volumes: 
+  hello1volume:
