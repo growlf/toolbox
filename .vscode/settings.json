@@ -1,3 +1,8 @@
 {
-    "editor.fontFamily": "'MesloLGS NF', 'Droid Sans Mono', 'monospace', monospace"
+    "editor.fontFamily": "'MesloLGS NF', 'Droid Sans Mono', 'monospace', monospace",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
