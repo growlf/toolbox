@@ -23,6 +23,9 @@ if test -t 1; then
         magenta="$(tput setaf 5)"
         cyan="$(tput setaf 6)"
         white="$(tput setaf 7)"
+        orange="$(tput setaf 208)"
+        purple="$(tput setaf 135)"
+
     fi
 fi
 

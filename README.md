@@ -29,7 +29,7 @@ You can find more at:
 
 ## Batteries included
 
-### Custom Shell
+### Custom Shell 
 
 Using the `docker-compose.yml` file (included) makes certain tasks easier.  For example, opening a self-removing ZShell instance can be done lke so:
 
@@ -41,13 +41,13 @@ Using `tcpdump` can either be done from within a shell of the toolbox container,
 
     docker run --rm -it --net=host ghcr.io/growlf/toolbox sudo tcpdump
 
-### Running scripts and commands
+### Running scripts and commands 
 
 You can also run arbitrary commands and scripts directly from the commandline like so:
 
     docker compose run --rm -it app1 ./test_net.sh
 
-## Invoke
+## Using the Invoke Command
 
 This image implements [Python Invoke](https://www.pyinvoke.org/), for managing shell-oriented subprocesses and organizing executable Python code into CLI-invokable tasks. There are a few basic tasks defined as examples already.
 
@@ -72,6 +72,11 @@ Some possible tasks to add-to/replace the default options:
 - setup a reverse proxy for remote shell (outbond from container host to remote support system)
 - create a container project from defined template
 
+
+## Use with Portainer
+
+Use the `portainer-compose.yml` file and modify to your hearts content.
+
 ## Notes
 
 - https://ohmyz.sh/#install
@@ -81,3 +86,4 @@ Some possible tasks to add-to/replace the default options:
 - https://pypi.org/project/portscan/
 - https://docs.pyinvoke.org/en/stable/
 - https://docker-py.readthedocs.io/en/stable/
+
