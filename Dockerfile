@@ -66,7 +66,7 @@ RUN echo $GIT_VERSION_HASH > GIT_VERSION_HASH.txt
 USER $USERNAME
 
 # Install ZSH, OhMyZSH, themes and plugins
-ADD --chown=1000:1000  --chmod=+x src/zsh-in-docker.sh .
+COPY --chown=1000:1000 --chmod='0755' src/zsh-in-docker.sh .
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN ./zsh-in-docker.sh \
     -p git \
@@ -92,10 +92,10 @@ ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 ADD --chown=1000:1000 src/.zshrc /home/$USERNAME/.zshrc
 ADD --chown=1000:1000 src/.p10k.zsh /home/$USERNAME/.p10k.zsh
 
-ADD --chown=1000:1000 --chmod=+x src/tasks.py .
-ADD --chown=1000:1000 --chmod=+x https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
+ADD --chown=1000:1000 --chmod='0755' src/tasks.py .
+ADD --chown=1000:1000 --chmod='0755' https://private-sw-downloads.s3.amazonaws.com/archfx_broker/preflight/broker_preflight.sh .
 
-ADD --chown=1000:1000 --chmod=+x src/test_net.sh .
+ADD --chown=1000:1000 --chmod='0755' src/test_net.sh .
 ADD --chown=1000:1000 src/nodes.list .
 
 # Set default command
