@@ -3,9 +3,6 @@ services:
 
   # Building and testing environment
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: ghcr.io/growlf/toolbox:testing
     stdin_open: true
     tty: true
