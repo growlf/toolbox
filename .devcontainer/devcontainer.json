@@ -34,7 +34,8 @@
 			"installTools": true,
 			"version": "3.11"
 		},
-		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
+		"ghcr.io/warrenbuckley/codespace-features/sqlite:1": {},
+		"ghcr.io/hspaans/devcontainer-features/pytest:1": {}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
