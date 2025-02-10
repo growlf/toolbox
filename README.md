@@ -8,6 +8,16 @@
 [![ghcr.io](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish.yml)
 [![Docker Hub](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml/badge.svg)](https://github.com/growlf/toolbox/actions/workflows/docker-publish-dh.yml)
 
+## Development Environment Enhancements
+
+- Enabled format on save in VS Code settings to improve code consistency and reduce manual formatting efforts.
+
+  The following setting was added to `.vscode/settings.json`:
+  ```json
+  {
+    "editor.formatOnSave": true
+  }
+  
 Containerized tools for on-the-go troubleshooting and developing in alien environments.
 
 By: Garth Johnson & others
