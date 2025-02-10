@@ -1,0 +1,12 @@
+version: '1'
+services:
+
+  # Building and testing environment
+  app:
+    image: ghcr.io/growlf/toolbox:testing
+    stdin_open: true
+    tty: true
+    command: ["/bin/zsh"]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    network_mode: "host"

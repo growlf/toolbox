@@ -25,7 +25,7 @@ services:
       - TESTVAR=${TESTVAR:-app2}
     stdin_open: true
     tty: true
-    command: ["/bin/zsh"]
+    command: ["/bin/"]
     volumes:
       - /:/host
       - /var/run/docker.sock:/var/run/docker.sock
