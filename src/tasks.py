@@ -89,11 +89,15 @@ def netspeed(c, verbose=0):
     # If you want to use a single threaded test
     # threads = 1
 
-    s = speedtest.Speedtest()
-    s.get_servers(servers)
-    s.get_best_server()
-    s.download(threads=threads)
-    s.upload(threads=threads)
+    try:
+        s = speedtest.Speedtest()
+        s.get_servers(servers)
+        s.get_best_server()
+        s.download(threads=threads)
+        s.upload(threads=threads)
+    except Exception as e:
+        raise invoke.Exit("ERROR: Speedtest failed.", e)
+   
 
     results_dict = s.results.dict()
     
